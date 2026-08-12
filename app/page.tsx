@@ -1,5 +1,5 @@
 import Hero from "@/components/Home/Hero";
-import ServicesSrip from "@/components/Home/ServicesStrip";
+import ServicesStrip from "@/components/Home/ServicesStrip";
 import FeaturedProjects from "@/components/Home/FeaturedProjects";
 import ProcessOverview from "@/components/Home/ProcessOverview";
 import StatsStrip from "@/components/Home/StatsStrip";
@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <ServicesSrip />
+      <ServicesStrip />
       <FeaturedProjects />
       <ProcessOverview />
       <StatsStrip />

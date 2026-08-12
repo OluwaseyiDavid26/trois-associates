@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { label: "About Us", href: "/about" },
   { label: "Our Services", href: "/services" },
   { label: "Projects", href: "/projects" },
-  { label: "Contact", href: "/contact" },
+  // { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -73,7 +73,7 @@ export default function Navbar() {
             href="/contact"
             className="ml-3 px-5 py-2.5 rounded-[3px] bg-[#0E2A4A] text-white text-[12.5px] font-semibold uppercase tracking-[0.05em] hover:bg-[#1F5FA8] transition-colors"
           >
-            Get a Quote
+            Contact
           </Link>
         </div>
       </div>
