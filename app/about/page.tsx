@@ -4,7 +4,7 @@ import Corevalues from "@/components/About/Corevalues";
 // import CompanyStory from "@/components/About/CompanyStory";
 import TeamGrid from "@/components/About/TeamGrid";
 // import WhyChooseUs from "@/components/About/WhyChooseUs";
-import CTAStrip from "@/components/About/CTAStrip";
+// import CTAStrip from "@/components/About/CTAStrip";
 // import CoreValues from "@/components/about/CoreValues";
 // import Timeline from "@/components/about/Timeline
 export default function AboutPage() {
@@ -15,7 +15,7 @@ export default function AboutPage() {
       <Corevalues />
       <TeamGrid />
       {/* <WhyChooseUs /> */}
-      <CTAStrip />
+      {/* <CTAStrip /> */}
     </main>
   );
 }

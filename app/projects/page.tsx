@@ -3,9 +3,9 @@
 
 import { useState } from "react";
 import ProjectsHero from "@/components/Projects/ProjectsHero";
-import ProjectFilterBar from "@/components/Projects/ProjectFilterBar";
+// import ProjectFilterBar from "@/components/Projects/ProjectFilterBar";
 import ProjectsGrid from "@/components/Projects/ProjectsGrid";
-import FeaturedProjectDetail from "@/components/Projects/FeaturedProjectDetail";
+// import FeaturedProjectDetail from "@/components/Projects/FeaturedProjectDetail";
 
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -13,12 +13,12 @@ export default function ProjectsPage() {
   return (
     <main>
       <ProjectsHero />
-      <ProjectFilterBar
+      {/* <ProjectFilterBar
         activeCategory={activeCategory}
         onCategoryChange={setActiveCategory}
-      />
+      /> */}
       <ProjectsGrid category={activeCategory} />
-      <FeaturedProjectDetail />
+      {/* <FeaturedProjectDetail /> */}
     </main>
   );
 }

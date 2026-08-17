@@ -220,8 +220,8 @@ export default function ServicesStrip() {
         <div className="mb-16 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <div className="mb-4 flex items-center gap-3 font-[family-name:var(--font-mono)] text-[12px] uppercase tracking-[0.2em] text-[#D9A441]">
-              <span className="text-white/40">Our Services /</span>
-              What we do
+              <span className="text-white/40">Our Services </span>
+              {/* What we do */}
             </div>
             <h2 className="font-[family-name:var(--font-display)] text-[34px] font-semibold leading-[1.15] text-white sm:text-[42px]">
               Built to last, designed with intent

@@ -3,6 +3,20 @@
 
 // import { motion, AnimatePresence } from "framer-motion";
 // import Link from "next/link";
+// import Image from "next/image";
+// import { Fraunces, JetBrains_Mono } from "next/font/google";
+
+// const display = Fraunces({
+//   subsets: ["latin"],
+//   weight: ["400", "600"],
+//   variable: "--font-display",
+// });
+
+// const mono = JetBrains_Mono({
+//   subsets: ["latin"],
+//   weight: ["400", "500"],
+//   variable: "--font-mono",
+// });
 
 // const fadeUp = {
 //   hidden: { opacity: 0, y: 24 },
@@ -73,7 +87,9 @@
 //       : PROJECTS.filter((p) => p.category === category);
 
 //   return (
-//     <section className="relative bg-white py-16 md:py-24">
+//     <section
+//       className={`${display.variable} ${mono.variable} relative bg-white py-16 md:py-24`}
+//     >
 //       <div className="mx-auto max-w-7xl px-6 md:px-12">
 //         <AnimatePresence mode="wait">
 //           <motion.div
@@ -82,7 +98,7 @@
 //             animate={{ opacity: 1 }}
 //             exit={{ opacity: 0 }}
 //             transition={{ duration: 0.25 }}
-//             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16"
+//             className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
 //           >
 //             {filtered.map((project, i) => (
 //               <motion.div
@@ -96,19 +112,20 @@
 //                   href={`/projects/${project.slug}`}
 //                   className="group block"
 //                 >
-//                   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm mb-5">
-//                     <img
+//                   <div className="relative mb-5 aspect-[4/3] w-full overflow-hidden rounded-sm">
+//                     <Image
 //                       src={project.image}
 //                       alt={project.title}
-//                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+//                       fill
+//                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
 //                     />
 //                     <div
 //                       className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0"
 //                       style={{ background: "rgba(14,26,42,0.38)" }}
 //                     />
 //                     {/* View project label on hover */}
-//                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-//                       <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white border border-white/40 px-5 py-2.5 rounded-full">
+//                     <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-400 group-hover:opacity-100">
+//                       <span className="rounded-full border border-white/40 px-5 py-2.5 font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.2em] text-white">
 //                         View Project
 //                       </span>
 //                     </div>
@@ -116,14 +133,14 @@
 
 //                   <div className="flex items-start justify-between gap-4">
 //                     <div>
-//                       <h3 className="font-serif text-xl text-[#0E1A2A] mb-1">
+//                       <h3 className="mb-1 font-[family-name:var(--font-display)] text-xl text-[#0E1A2A]">
 //                         {project.title}
 //                       </h3>
-//                       <p className="text-[#0E1A2A]/50 text-sm">
+//                       <p className="text-sm text-[#0E1A2A]/50">
 //                         {project.location}
 //                       </p>
 //                     </div>
-//                     <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#D9A441] shrink-0 pt-1">
+//                     <span className="shrink-0 pt-1 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.15em] text-[#D9A441]">
 //                       {project.category}
 //                     </span>
 //                   </div>
@@ -134,9 +151,14 @@
 //         </AnimatePresence>
 
 //         {filtered.length === 0 && (
-//           <p className="text-center text-[#0E1A2A]/50 py-20">
-//             No projects found in this category yet.
-//           </p>
+//           <div className="py-24 text-center">
+//             <p className="font-[family-name:var(--font-display)] text-xl text-[#0E1A2A]/70">
+//               No projects found in this category yet.
+//             </p>
+//             <p className="mt-2 font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.1em] text-[#0E1A2A]/40">
+//               Try a different filter above
+//             </p>
+//           </div>
 //         )}
 //       </div>
 //     </section>
@@ -176,48 +198,57 @@ const fadeUp = {
   }),
 };
 
+// NOTE: category + location are best-guess placeholders for entries
+// marked "VERIFY" below — please confirm/correct before shipping.
 const PROJECTS = [
   {
-    slug: "riverside-residence",
-    title: "Riverside Residence",
-    category: "Residential",
-    location: "Lekki, Lagos",
-    image: "/images/projects/riverside-residence.jpg",
+    slug: "chest-clinics-community-engagement",
+    title: "Community Engagement Projects - Chest Clinics",
+    category: "Community", // VERIFY
+    location: "Nigeria", // VERIFY
+    image: "/images/projects/chest-clinics.jpg",
   },
   {
-    slug: "harborview-offices",
-    title: "Harborview Offices",
-    category: "Commercial",
-    location: "Victoria Island, Lagos",
-    image: "/images/projects/harborview-offices.jpg",
+    slug: "headquarters-e-audit-office",
+    title: "Construction of Headquarters and E-Audit Office",
+    category: "Commercial", // VERIFY
+    location: "Nigeria", // VERIFY
+    image: "/images/projects/headquarters-e-audit-office.jpg",
   },
   {
-    slug: "the-oakwood-loft",
-    title: "The Oakwood Loft",
+    slug: "office-complex",
+    title: "Construction of Office Complex",
+    category: "Commercial", // VERIFY
+    location: "Nigeria", // VERIFY
+    image: "/images/projects/office-complex.jpg",
+  },
+  {
+    slug: "nuclear-instrumentation-laboratory-naec",
+    title: "Nuclear Instrumentation Laboratory Complex for NAEC",
+    category: "Institutional", // VERIFY
+    location: "Sheda, Abuja", // VERIFY — NAEC is headquartered in Sheda, Abuja
+    image: "/images/projects/naec-lab-complex.jpg",
+  },
+  {
+    slug: "maternal-child-center",
+    title: "Community Engagement Projects - Maternal and Child Center",
+    category: "Community", // VERIFY
+    location: "Nigeria", // VERIFY
+    image: "/images/projects/maternal-child-center.jpg",
+  },
+  {
+    slug: "250-seater-computer-laboratory",
+    title: "250-Seater Capacity Computer Laboratory",
+    category: "Institutional", // VERIFY
+    location: "Nigeria", // VERIFY
+    image: "/images/projects/computer-laboratory.jpg",
+  },
+  {
+    slug: "kenneth-dike-library-renovation",
+    title: "Renovation of Kenneth Dike Library (Central Library)",
     category: "Renovation",
-    location: "Ikoyi, Lagos",
-    image: "/images/projects/oakwood-loft.jpg",
-  },
-  {
-    slug: "meridian-showroom",
-    title: "Meridian Showroom",
-    category: "Interiors",
-    location: "Ikeja, Lagos",
-    image: "/images/projects/meridian-showroom.jpg",
-  },
-  {
-    slug: "sable-family-home",
-    title: "Sable Family Home",
-    category: "Residential",
-    location: "Ajah, Lagos",
-    image: "/images/projects/sable-family-home.jpg",
-  },
-  {
-    slug: "crestline-hq",
-    title: "Crestline HQ",
-    category: "Commercial",
-    location: "Yaba, Lagos",
-    image: "/images/projects/crestline-hq.jpg",
+    location: "University of Ibadan, Ibadan", // Kenneth Dike Library is UI's central library
+    image: "/images/projects/kenneth-dike-library.jpg",
   },
 ];
 
@@ -233,9 +264,25 @@ export default function ProjectsGrid({ category }: ProjectsGridProps) {
 
   return (
     <section
-      className={`${display.variable} ${mono.variable} relative bg-white py-16 md:py-24`}
+      className={`${display.variable} ${mono.variable} relative bg-white py-20 md:py-28`}
     >
       <div className="mx-auto max-w-7xl px-6 md:px-12">
+        {/* section header */}
+        <div className="mb-14 flex flex-col gap-6 border-b border-[#0E1A2A]/10 pb-10 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="mb-4 font-[family-name:var(--font-mono)] text-[12px] uppercase tracking-[0.2em] text-[#B5822C]">
+              Selected Work
+            </p>
+            <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold leading-[1.15] text-[#0E1A2A] sm:text-4xl">
+              Projects delivered with precision
+            </h2>
+          </div>
+          <p className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.15em] text-[#0E1A2A]/40">
+            {String(filtered.length).padStart(2, "0")} Project
+            {filtered.length !== 1 ? "s" : ""}
+          </p>
+        </div>
+
         <AnimatePresence mode="wait">
           <motion.div
             key={category}
@@ -243,7 +290,7 @@ export default function ProjectsGrid({ category }: ProjectsGridProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3"
           >
             {filtered.map((project, i) => (
               <motion.div
@@ -257,7 +304,7 @@ export default function ProjectsGrid({ category }: ProjectsGridProps) {
                   href={`/projects/${project.slug}`}
                   className="group block"
                 >
-                  <div className="relative mb-5 aspect-[4/3] w-full overflow-hidden rounded-sm">
+                  <div className="relative mb-5 aspect-[4/3] w-full overflow-hidden rounded-sm border border-[#0E1A2A]/10 shadow-[0_4px_20px_rgba(14,26,42,0.06)] transition-shadow duration-300 group-hover:shadow-[0_8px_28px_rgba(14,26,42,0.12)]">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -268,6 +315,12 @@ export default function ProjectsGrid({ category }: ProjectsGridProps) {
                       className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0"
                       style={{ background: "rgba(14,26,42,0.38)" }}
                     />
+
+                    {/* index numeral, top-left */}
+                    <span className="absolute left-4 top-4 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.1em] text-white/70">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
                     {/* View project label on hover */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-400 group-hover:opacity-100">
                       <span className="rounded-full border border-white/40 px-5 py-2.5 font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.2em] text-white">
@@ -278,14 +331,14 @@ export default function ProjectsGrid({ category }: ProjectsGridProps) {
 
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="mb-1 font-[family-name:var(--font-display)] text-xl text-[#0E1A2A]">
+                      <h3 className="mb-1 font-[family-name:var(--font-display)] text-xl leading-snug text-[#0E1A2A]">
                         {project.title}
                       </h3>
                       <p className="text-sm text-[#0E1A2A]/50">
                         {project.location}
                       </p>
                     </div>
-                    <span className="shrink-0 pt-1 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.15em] text-[#D9A441]">
+                    <span className="shrink-0 whitespace-nowrap pt-1 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.15em] text-[#B5822C]">
                       {project.category}
                     </span>
                   </div>

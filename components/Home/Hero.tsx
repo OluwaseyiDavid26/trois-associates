@@ -405,9 +405,6 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { Fraunces, JetBrains_Mono } from "next/font/google";
 import { Lightbulb, Cog, Box } from "lucide-react";
 
-// TODO: move these into layout.tsx and reference the CSS variables app-wide —
-// Navbar.tsx now loads the same two fonts separately, which duplicates the
-// font instantiation next/font is meant to avoid.
 const display = Fraunces({
   subsets: ["latin"],
   weight: ["400", "600"],
@@ -579,36 +576,6 @@ export default function Hero() {
           </p>
         </div>
       </div>
-
-      {/* vertical tick-rail nav — elevation scale / ruler motif (desktop) */}
-      {/* <div className="absolute right-6 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-end gap-0 md:flex">
-        {SLIDES.map((s, i) => (
-          <button
-            key={s.num}
-            onClick={() => setActive(i)}
-            aria-label={`Go to ${s.eyebrow}`}
-            aria-current={i === active}
-            className="group flex items-center gap-3 py-3 focus-visible:outline-none"
-          >
-            <span
-              className={`font-[family-name:var(--font-mono)] text-[11px] tracking-[0.1em] transition-colors duration-300 ${
-                i === active
-                  ? "text-[#D9A441]"
-                  : "text-white/35 group-hover:text-white/60 group-focus-visible:text-white/60"
-              }`}
-            >
-              {s.num}
-            </span>
-            <span
-              className={`h-[1px] transition-all duration-300 group-focus-visible:ring-2 group-focus-visible:ring-[#D9A441] group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-[#0E1A2A] ${
-                i === active
-                  ? "w-10 bg-[#D9A441]"
-                  : "w-5 bg-white/35 group-hover:bg-white/60 group-focus-visible:bg-white/60"
-              }`}
-            />
-          </button>
-        ))}
-      </div> */}
 
       {/* dot rail — mobile only, replaces the tick-rail as the sole way to
           navigate slides on small screens (previously missing entirely) */}
