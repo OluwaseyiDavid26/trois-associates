@@ -19,7 +19,7 @@ const fadeUp = {
 
 export default function CTAStrip() {
   return (
-    <section className="relative bg-[#0E1A2A] py-20 md:py-28 overflow-hidden">
+    <section className="relative bg-[#D9A441] py-20 md:py-28 overflow-hidden">
       {/* Faint drafting grid texture */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
