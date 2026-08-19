@@ -12,8 +12,6 @@ const NAV_LINKS = [
   { label: "Projects", href: "/projects" },
 ];
 
-// Dimension-line hover/active indicator — a nod to technical drawing
-// tick marks, echoing the engineering-drafting world Trios works in.
 function DimensionTick({ active }: { active: boolean }) {
   return (
     <span className="pointer-events-none absolute left-1/2 bottom-1.5 -translate-x-1/2 flex items-center">

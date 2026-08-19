@@ -334,7 +334,7 @@ const textItem = {
     opacity: 0,
     y: -10,
     transition: { duration: 0.35, ease: "easeIn" },
-  },
+  } as const, // cast to const so framer-motion doesn't complain about missing properties
 };
 
 export default function Hero() {
