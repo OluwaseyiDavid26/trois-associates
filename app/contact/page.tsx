@@ -72,7 +72,11 @@ function LinkedinIcon() {
 }
 
 const SOCIALS = [
-  { icon: InstagramIcon, href: "https://www.instagram.com/", label: "Instagram" },
+  {
+    icon: InstagramIcon,
+    href: "https://www.instagram.com/",
+    label: "Instagram",
+  },
   { icon: XIcon, href: "https://x.com/", label: "X" },
   { icon: LinkedinIcon, href: "https://www.linkedin.com/", label: "LinkedIn" },
 ];
@@ -80,7 +84,7 @@ const SOCIALS = [
 const CONTACT_ITEMS = [
   {
     icon: MapPin,
-    label: "Location",
+    // label: "Location",
     content: (
       <a
         href="https://www.google.com/maps/search/?api=1&query=%231%2C+El-Shaddai+Avenue%2C+Opp+Iye-Oma+Plaza%2C+Alagbaka+GRA%2C+Akure%2C+Ondo+State"
@@ -96,7 +100,7 @@ const CONTACT_ITEMS = [
   },
   {
     icon: Mail,
-    label: "Email",
+    // label: "Email",
     content: (
       <>
         <a
@@ -116,7 +120,7 @@ const CONTACT_ITEMS = [
   },
   {
     icon: Phone,
-    label: "Phone",
+    // label: "Phone",
     content: (
       <>
         <a
