@@ -69,24 +69,28 @@
 //       <RegistrationMark className="right-6 bottom-6 rotate-180" />
 
 //       <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
-//         <div className="mb-16 flex items-end justify-between gap-6">
+//         {/* Header */}
+//         <div className="mb-16 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
 //           <div>
-//             <div className="mb-4 flex items-center gap-3 font-[family-name:var(--font-mono)] text-[12px] uppercase tracking-[0.2em] text-[#D9A441]">
-//               <span className="text-white/40">Selected work /</span>
+//             <p className="mb-4 font-[family-name:var(--font-mono)] text-[12px] uppercase tracking-[0.2em] text-[#D9A441]">
 //               Recent Projects
-//             </div>
+//             </p>
 //             <h2 className="font-[family-name:var(--font-display)] text-[34px] font-semibold leading-[1.15] text-white sm:text-[42px]">
 //               Proof, not promises
 //             </h2>
 //           </div>
 //           <Link
 //             href="/projects"
-//             className="hidden shrink-0 font-[family-name:var(--font-mono)] text-[12px] uppercase tracking-[0.15em] text-white/50 transition-colors duration-300 hover:text-[#D9A441] sm:block"
+//             className="group inline-flex shrink-0 items-center gap-2 font-[family-name:var(--font-mono)] text-[12px] uppercase tracking-[0.15em] text-white/50 transition-colors duration-300 hover:text-[#D9A441]"
 //           >
-//             View all projects →
+//             View all projects
+//             <span className="transition-transform duration-300 group-hover:translate-x-1">
+//               →
+//             </span>
 //           </Link>
 //         </div>
 
+//         {/* Grid */}
 //         <motion.div
 //           variants={containerVariants}
 //           initial="hidden"
@@ -104,13 +108,6 @@
 //             </motion.div>
 //           ))}
 //         </motion.div>
-
-//         <Link
-//           href="/projects"
-//           className="mt-8 flex font-[family-name:var(--font-mono)] text-[12px] uppercase tracking-[0.15em] text-white/50 transition-colors duration-300 hover:text-[#D9A441] sm:hidden"
-//         >
-//           View all projects →
-//         </Link>
 //       </div>
 //     </section>
 //   );
@@ -126,7 +123,7 @@
 //   return (
 //     <Link
 //       href={`/projects/${project.slug}`}
-//       className={`group relative flex flex-col justify-end overflow-hidden border border-white/10 transition-colors duration-300 hover:border-[#D9A441]/40 ${
+//       className={`group relative flex flex-col justify-end overflow-hidden rounded-sm border border-white/10 transition-colors duration-300 hover:border-[#D9A441]/40 ${
 //         large ? "min-h-[520px]" : "min-h-[248px]"
 //       }`}
 //     >
@@ -152,13 +149,18 @@
 //         {project.num}
 //       </span>
 
+//       {/* View project — appears on hover */}
+//       <span className="pointer-events-none absolute right-6 top-6 flex h-9 w-9 items-center justify-center rounded-full border border-white/25 text-white opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:border-[#D9A441] group-hover:text-[#D9A441]">
+//         <ArrowIcon />
+//       </span>
+
 //       <div className="relative p-6">
 //         <div className="mb-2 flex items-center gap-3 font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.15em] text-[#D9A441]">
 //           {project.category}
 //           <span className="text-white/40">{project.year}</span>
 //         </div>
 //         <h3
-//           className={`font-[family-name:var(--font-display)] text-white ${
+//           className={`font-[family-name:var(--font-display)] leading-snug text-white ${
 //             large ? "text-2xl sm:text-[28px]" : "text-lg"
 //           }`}
 //         >
@@ -169,6 +171,25 @@
 //         </p>
 //       </div>
 //     </Link>
+//   );
+// }
+
+// function ArrowIcon() {
+//   return (
+//     <svg
+//       viewBox="0 0 24 24"
+//       className="h-4 w-4 -rotate-45"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="1.75"
+//       aria-hidden="true"
+//     >
+//       <path
+//         d="M5 12h14M13 6l6 6-6 6"
+//         strokeLinecap="round"
+//         strokeLinejoin="round"
+//       />
+//     </svg>
 //   );
 // }
 
@@ -199,7 +220,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-interface Project {
+export interface Project {
   slug: string;
   num: string;
   title: string;
@@ -210,36 +231,9 @@ interface Project {
   featured?: boolean;
 }
 
-const projects: Project[] = [
-  {
-    slug: "riverside-commercial-complex",
-    num: "01",
-    title: "Riverside Commercial Complex",
-    category: "Commercial",
-    location: "Lagos, NG",
-    year: "2025",
-    image: "/projects/riverside.jpg",
-    featured: true,
-  },
-  {
-    slug: "oakwood-residences",
-    num: "02",
-    title: "Oakwood Residences",
-    category: "Residential",
-    location: "Lekki, NG",
-    year: "2024",
-    image: "/projects/oakwood.jpg",
-  },
-  {
-    slug: "heritage-hall-renovation",
-    num: "03",
-    title: "Heritage Hall Renovation",
-    category: "Renovation",
-    location: "Ikeja, NG",
-    year: "2024",
-    image: "/projects/heritage.jpg",
-  },
-];
+interface FeaturedProjectsProps {
+  projects?: Project[];
+}
 
 const containerVariants = {
   hidden: {},
@@ -255,8 +249,12 @@ const cardVariants = {
   },
 };
 
-export default function FeaturedProjects() {
-  const [lead, ...rest] = projects;
+export default function FeaturedProjects({
+  projects = [],
+}: FeaturedProjectsProps) {
+  const teaser = projects.slice(0, 3);
+  const [lead, ...rest] = teaser;
+  const hasProjects = teaser.length > 0;
 
   return (
     <section className="relative overflow-hidden bg-[#0E1A2A] py-24 sm:py-32">
@@ -268,7 +266,7 @@ export default function FeaturedProjects() {
         <div className="mb-16 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="mb-4 font-[family-name:var(--font-mono)] text-[12px] uppercase tracking-[0.2em] text-[#D9A441]">
-              Recent Projects
+              Selected Work
             </p>
             <h2 className="font-[family-name:var(--font-display)] text-[34px] font-semibold leading-[1.15] text-white sm:text-[42px]">
               Proof, not promises
@@ -285,26 +283,44 @@ export default function FeaturedProjects() {
           </Link>
         </div>
 
-        {/* Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 gap-4 lg:grid-cols-2"
-        >
-          <motion.div variants={cardVariants} className="lg:row-span-2">
-            <ProjectCard project={lead} large />
-          </motion.div>
-
-          {rest.map((project) => (
-            <motion.div key={project.slug} variants={cardVariants}>
-              <ProjectCard project={project} />
+        {/* Grid or empty state */}
+        {hasProjects ? (
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid grid-cols-1 gap-4 lg:grid-cols-2"
+          >
+            <motion.div variants={cardVariants} className="lg:row-span-2">
+              <ProjectCard project={lead} large />
             </motion.div>
-          ))}
-        </motion.div>
+
+            {rest.map((project) => (
+              <motion.div key={project.slug} variants={cardVariants}>
+                <ProjectCard project={project} />
+              </motion.div>
+            ))}
+          </motion.div>
+        ) : (
+          <EmptyState />
+        )}
       </div>
     </section>
+  );
+}
+
+function EmptyState() {
+  return (
+    <div className="flex min-h-[320px] flex-col items-center justify-center rounded-sm border border-dashed border-white/15 px-6 text-center">
+      <p className="font-[family-name:var(--font-mono)] text-[12px] uppercase tracking-[0.2em] text-[#D9A441]">
+        New work coming soon
+      </p>
+      <p className="mt-3 max-w-sm text-sm text-white/50">
+        We&apos;re putting the finishing touches on our latest projects — check
+        back shortly.
+      </p>
+    </div>
   );
 }
 
@@ -344,7 +360,6 @@ function ProjectCard({
         {project.num}
       </span>
 
-      {/* View project — appears on hover */}
       <span className="pointer-events-none absolute right-6 top-6 flex h-9 w-9 items-center justify-center rounded-full border border-white/25 text-white opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:border-[#D9A441] group-hover:text-[#D9A441]">
         <ArrowIcon />
       </span>
