@@ -72,17 +72,9 @@ function LinkedinIcon() {
 }
 
 const SOCIALS = [
-  {
-    icon: InstagramIcon,
-    href: "https://instagram.com/troisassociates",
-    label: "Instagram",
-  },
-  { icon: XIcon, href: "https://x.com/troisassociates", label: "X" },
-  {
-    icon: LinkedinIcon,
-    href: "https://linkedin.com/company/troisassociates",
-    label: "LinkedIn",
-  },
+  { icon: InstagramIcon, href: "https://www.instagram.com/", label: "Instagram" },
+  { icon: XIcon, href: "https://x.com/", label: "X" },
+  { icon: LinkedinIcon, href: "https://www.linkedin.com/", label: "LinkedIn" },
 ];
 
 const CONTACT_ITEMS = [
@@ -90,7 +82,7 @@ const CONTACT_ITEMS = [
     icon: MapPin,
     label: "Location",
     content: (
-      < a
+      <a
         href="https://www.google.com/maps/search/?api=1&query=%231%2C+El-Shaddai+Avenue%2C+Opp+Iye-Oma+Plaza%2C+Alagbaka+GRA%2C+Akure%2C+Ondo+State"
         target="_blank"
         rel="noopener noreferrer"
@@ -106,12 +98,20 @@ const CONTACT_ITEMS = [
     icon: Mail,
     label: "Email",
     content: (
-      < a
-        href="mailto:info@troisassociates.com"
-        className="text-white text-sm hover:text-[#D9A441] transition-colors duration-300"
-      >
-        info@troisassociates.com
-      </a>
+      <>
+        <a
+          href="mailto:info@troisassociates.com"
+          className="block text-white text-sm hover:text-[#D9A441] transition-colors duration-300"
+        >
+          info@troisassociates.com
+        </a>
+        <a
+          href="mailto:info@troisassociates-ng.com"
+          className="block text-white text-sm hover:text-[#D9A441] transition-colors duration-300"
+        >
+          info@troisassociates-ng.com
+        </a>
+      </>
     ),
   },
   {
@@ -119,13 +119,13 @@ const CONTACT_ITEMS = [
     label: "Phone",
     content: (
       <>
-        < a 
+        <a
           href="tel:+2348033942200"
           className="block text-white text-sm hover:text-[#D9A441] transition-colors duration-300"
         >
           +234 803 394 2200
         </a>
-        < a 
+        <a
           href="tel:+2348050955295"
           className="block text-white text-sm hover:text-[#D9A441] transition-colors duration-300"
         >
@@ -325,7 +325,10 @@ export default function ContactPage() {
                         visible: {
                           pathLength: 1,
                           opacity: 1,
-                          transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+                          transition: {
+                            duration: 0.6,
+                            ease: [0.22, 1, 0.36, 1],
+                          },
                         },
                       }}
                     />
@@ -340,7 +343,11 @@ export default function ContactPage() {
                         hidden: { pathLength: 0 },
                         visible: {
                           pathLength: 1,
-                          transition: { duration: 0.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] },
+                          transition: {
+                            duration: 0.5,
+                            delay: 0.5,
+                            ease: [0.22, 1, 0.36, 1],
+                          },
                         },
                       }}
                     />
@@ -362,7 +369,12 @@ export default function ContactPage() {
                   className="flex flex-col gap-6"
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <motion.div initial="hidden" animate="visible" custom={0} variants={fieldVariants}>
+                    <motion.div
+                      initial="hidden"
+                      animate="visible"
+                      custom={0}
+                      variants={fieldVariants}
+                    >
                       <label className="block font-mono text-[10px] tracking-[0.15em] uppercase text-white/50 mb-2">
                         Full Name *
                       </label>
@@ -378,7 +390,12 @@ export default function ContactPage() {
                         className={fieldWrap("name")}
                       />
                     </motion.div>
-                    <motion.div initial="hidden" animate="visible" custom={1} variants={fieldVariants}>
+                    <motion.div
+                      initial="hidden"
+                      animate="visible"
+                      custom={1}
+                      variants={fieldVariants}
+                    >
                       <label className="block font-mono text-[10px] tracking-[0.15em] uppercase text-white/50 mb-2">
                         Email Address *
                       </label>
@@ -396,7 +413,12 @@ export default function ContactPage() {
                     </motion.div>
                   </div>
 
-                  <motion.div initial="hidden" animate="visible" custom={2} variants={fieldVariants}>
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    custom={2}
+                    variants={fieldVariants}
+                  >
                     <label className="block font-mono text-[10px] tracking-[0.15em] uppercase text-white/50 mb-2">
                       Company{" "}
                       <span className="text-white/30 normal-case">
@@ -415,7 +437,12 @@ export default function ContactPage() {
                     />
                   </motion.div>
 
-                  <motion.div initial="hidden" animate="visible" custom={3} variants={fieldVariants}>
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    custom={3}
+                    variants={fieldVariants}
+                  >
                     <label className="block font-mono text-[10px] tracking-[0.15em] uppercase text-white/50 mb-2">
                       What are you reaching out about? *
                     </label>
@@ -443,7 +470,12 @@ export default function ContactPage() {
                     </select>
                   </motion.div>
 
-                  <motion.div initial="hidden" animate="visible" custom={4} variants={fieldVariants}>
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    custom={4}
+                    variants={fieldVariants}
+                  >
                     <div className="flex items-center justify-between mb-2">
                       <label className="block font-mono text-[10px] tracking-[0.15em] uppercase text-white/50">
                         Message *
@@ -488,7 +520,11 @@ export default function ContactPage() {
                         >
                           <motion.span
                             animate={{ rotate: 360 }}
-                            transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+                            transition={{
+                              duration: 0.8,
+                              repeat: Infinity,
+                              ease: "linear",
+                            }}
                             className="w-3.5 h-3.5 border-[1.5px] border-[#0E1A2A]/30 border-t-[#0E1A2A] rounded-full"
                           />
                           Sending
@@ -517,13 +553,23 @@ export default function ContactPage() {
   );
 }
 
-function RegistrationMark({ className, custom }: { className?: string; custom?: number }) {
+function RegistrationMark({
+  className,
+  custom,
+}: {
+  className?: string;
+  custom?: number;
+}) {
   const draw = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: {
       pathLength: 1,
       opacity: 1,
-      transition: { duration: 0.7, delay: 0.15 + (custom ?? 0) * 0.08, ease: [0.22, 1, 0.36, 1] as const },
+      transition: {
+        duration: 0.7,
+        delay: 0.15 + (custom ?? 0) * 0.08,
+        ease: [0.22, 1, 0.36, 1] as const,
+      },
     },
   };
 
@@ -533,9 +579,33 @@ function RegistrationMark({ className, custom }: { className?: string; custom?: 
       className={`absolute z-10 h-6 w-6 text-white/40 ${className ?? ""}`}
       aria-hidden="true"
     >
-      <motion.path d="M16 2 V12" stroke="currentColor" strokeWidth="1" initial="hidden" animate="visible" variants={draw} />
-      <motion.path d="M2 16 H12" stroke="currentColor" strokeWidth="1" initial="hidden" animate="visible" variants={draw} />
-      <motion.circle cx="16" cy="16" r="3.5" stroke="currentColor" strokeWidth="1" fill="none" initial="hidden" animate="visible" variants={draw} />
+      <motion.path
+        d="M16 2 V12"
+        stroke="currentColor"
+        strokeWidth="1"
+        initial="hidden"
+        animate="visible"
+        variants={draw}
+      />
+      <motion.path
+        d="M2 16 H12"
+        stroke="currentColor"
+        strokeWidth="1"
+        initial="hidden"
+        animate="visible"
+        variants={draw}
+      />
+      <motion.circle
+        cx="16"
+        cy="16"
+        r="3.5"
+        stroke="currentColor"
+        strokeWidth="1"
+        fill="none"
+        initial="hidden"
+        animate="visible"
+        variants={draw}
+      />
     </svg>
   );
 }

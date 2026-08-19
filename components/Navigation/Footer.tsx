@@ -90,8 +90,9 @@ export default function Footer() {
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-white/15 text-white/60 transition-colors duration-300 group-hover:border-[#D9A441] group-hover:text-[#D9A441]">
                 <Mail className="h-4 w-4" strokeWidth={1.75} />
               </span>
-              <span className="text-[14px] text-white/70 transition-colors duration-300 group-hover:text-[#D9A441]">
-                info@troisassociates.com
+              <span className="flex flex-col text-[14px] text-white/70 transition-colors duration-300 group-hover:text-[#D9A441]">
+                <span>info@troisassociates.com</span>
+                <span>info@troisassociates-ng.com</span>
               </span>
             </a>
 
