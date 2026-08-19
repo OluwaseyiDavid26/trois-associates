@@ -82,29 +82,28 @@ export default function Footer() {
           </div>
 
           {/* Right: contact details + socials */}
-          {/* Right: contact details + socials */}
-          <div className="flex flex-col items-start gap-4 md:items-end">
+          <div className="flex flex-col items-start gap-4">
             <a
               href="mailto:info@troisassociates.com"
-              className="group flex items-center gap-3 md:flex-row-reverse"
+              className="group flex items-center gap-3"
             >
-              <span className="text-[14px] text-white/70 transition-colors duration-300 group-hover:text-[#D9A441]">
-                info@troisassociates.com
-              </span>
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-white/15 text-white/60 transition-colors duration-300 group-hover:border-[#D9A441] group-hover:text-[#D9A441]">
                 <Mail className="h-4 w-4" strokeWidth={1.75} />
+              </span>
+              <span className="text-[14px] text-white/70 transition-colors duration-300 group-hover:text-[#D9A441]">
+                info@troisassociates.com
               </span>
             </a>
 
             <a
               href="tel:+2348033942200"
-              className="group flex items-center gap-3 md:flex-row-reverse"
+              className="group flex items-center gap-3"
             >
-              <span className="text-[14px] text-white/70 transition-colors duration-300 group-hover:text-[#D9A441]">
-                +234 803 394 2200
-              </span>
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-white/15 text-white/60 transition-colors duration-300 group-hover:border-[#D9A441] group-hover:text-[#D9A441]">
                 <Phone className="h-4 w-4" strokeWidth={1.75} />
+              </span>
+              <span className="text-[14px] text-white/70 transition-colors duration-300 group-hover:text-[#D9A441]">
+                +234 803 394 2200
               </span>
             </a>
 
@@ -112,15 +111,15 @@ export default function Footer() {
               href="https://www.google.com/maps/search/?api=1&query=%231%2C+El-Shaddai+Avenue%2C+Opp+Iye-Oma+Plaza%2C+Alagbaka+GRA%2C+Akure%2C+Ondo+State"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 md:flex-row-reverse"
+              className="group flex items-start gap-3"
             >
-              <span className="text-right text-[14px] leading-[1.5] text-white/70 transition-colors duration-300 group-hover:text-[#D9A441]">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-white/15 text-white/60 transition-colors duration-300 group-hover:border-[#D9A441] group-hover:text-[#D9A441]">
+                <MapPin className="h-4 w-4" strokeWidth={1.75} />
+              </span>
+              <span className="text-left text-[14px] leading-[1.5] text-white/70 transition-colors duration-300 group-hover:text-[#D9A441]">
                 #1, El-Shaddai Avenue, Opp Iye-Oma
                 <br />
                 Plaza, Alagbaka GRA, Akure
-              </span>
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-white/15 text-white/60 transition-colors duration-300 group-hover:border-[#D9A441] group-hover:text-[#D9A441]">
-                <MapPin className="h-4 w-4" strokeWidth={1.75} />
               </span>
             </a>
 
