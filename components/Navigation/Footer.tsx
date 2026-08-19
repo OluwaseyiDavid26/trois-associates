@@ -30,10 +30,10 @@ const FOOTER_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
-const LEGAL_LINKS = [
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms & Conditions", href: "/terms" },
-];
+// const LEGAL_LINKS = [
+//   { label: "Privacy Policy", href: "/privacy" },
+//   { label: "Terms & Conditions", href: "/terms" },
+// ];
 
 export default function Footer() {
   function scrollToTop() {
@@ -160,28 +160,7 @@ export default function Footer() {
               </Link>
             ))}
           </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
-            {LEGAL_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="font-[family-name:var(--font-mono)] text-[10.5px] uppercase tracking-[0.08em] text-white/30 transition-colors duration-300 hover:text-white/60"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
         </div>
-
-        {/* Back to top */}
-        <button
-          onClick={scrollToTop}
-          aria-label="Back to top"
-          className="absolute bottom-6 right-6 flex h-11 w-11 items-center justify-center rounded-full bg-[#D9A441] text-[#0E1A2A] shadow-[0_8px_24px_rgba(217,164,65,0.3)] transition-transform duration-300 hover:-translate-y-1 md:right-10"
-        >
-          <ArrowUp className="h-4 w-4" strokeWidth={2} />
-        </button>
       </div>
     </footer>
   );
