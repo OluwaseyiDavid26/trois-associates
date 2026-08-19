@@ -277,7 +277,7 @@ export default function AboutHero() {
 
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm border border-white/10 sm:aspect-[5/4] lg:aspect-[4/5]">
             <Image
-              src="/about/team-onsite.jpg"
+              src="https://images.pexels.com/photos/29299826/pexels-photo-29299826.jpeg?auto=compress&cs=tinysrgb&w=1200"
               alt="Trois Associates engineers and construction team reviewing plans on site"
               fill
               priority
