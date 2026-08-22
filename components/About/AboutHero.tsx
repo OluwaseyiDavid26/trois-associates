@@ -20,15 +20,15 @@ const disciplines = [
 // auto-rotating image set for the right panel — swap these for real site photography
 const IMAGES = [
   {
-    src: "https://images.pexels.com/photos/29299826/pexels-photo-29299826.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    src: "https://res.cloudinary.com/du9kb43d6/image/upload/v1787426264/pexels-oloruntoba-john-104292376-9485447_dpgwtw.jpg",
     alt: "Trois Associates engineers and construction team reviewing plans on site",
   },
   {
-    src: "https://images.pexels.com/photos/8961199/pexels-photo-8961199.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    src: "https://res.cloudinary.com/du9kb43d6/image/upload/v1787426263/pexels-harrun-muhammad-116282236-36601725_a3ejgs.jpg",
     alt: "Engineer inspecting mechanical installation on an active construction site",
   },
   {
-    src: "https://images.pexels.com/photos/8961278/pexels-photo-8961278.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    src: "https://res.cloudinary.com/du9kb43d6/image/upload/v1787426261/istockphoto-847503126-612x612_civoa0.jpg",
     alt: "Civil engineering team reviewing structural drawings",
   },
 ];

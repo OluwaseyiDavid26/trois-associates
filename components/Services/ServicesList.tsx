@@ -51,7 +51,7 @@ const SERVICES = [
     description:
       "Concept development through construction documents, balancing aesthetic vision with buildability and code compliance.",
     image:
-      "https://images.pexels.com/photos/239886/pexels-photo-239886.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://res.cloudinary.com/du9kb43d6/image/upload/v1787426628/pexels-sahfy-lenz-2153643467-38610451_az1pzm.jpg",
   },
   {
     number: "02",
